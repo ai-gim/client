@@ -20,7 +20,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class UserApiTest
 {
-
 	public static UserApi userApi;
 
 	ObjectMapper om = new ObjectMapper();
@@ -30,14 +29,14 @@ public class UserApiTest
 	{
 		userApi = new UserApi(Constants.TEST_AUTH_ENDPOINT);
 
-		ClientTestUtils.fetchToken();
+//		ClientTestUtils.fetchToken();
 	}
 
-	@Before
-	public void prepare()
-	{
-		ClientTestUtils.injectToken();
-	}
+//	@Before
+//	public void prepare()
+//	{
+//		ClientTestUtils.injectToken();
+//	}
 
 	@Test
 	@Ignore
@@ -67,7 +66,7 @@ public class UserApiTest
 		User user = new User();
 		user.setAccount("admin12");
 		user.setPassword("admin");
-		user.setState(0);
+		user.setState(1);
 
 		Role role = new Role();
 		role.setId(1);
@@ -87,8 +86,8 @@ public class UserApiTest
 	{
 		User user = new User();
 		user.setName("ad");
-		user.setId(7);
-		user.setPassword("admin123");
+		user.setId(2);
+//		user.setPassword("admin123");
 		user.setState(1);
 
 		Role role = new Role();
@@ -96,7 +95,7 @@ public class UserApiTest
 		user.setRole(role);
 
 		Group group = new Group();
-		group.setId(2);
+		group.setId(1);
 		user.setGroup(group);
 
 		user = userApi.updateUser(user);

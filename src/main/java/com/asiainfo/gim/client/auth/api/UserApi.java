@@ -56,6 +56,13 @@ public class UserApi extends AbstrackApi
 		return restTemplate.post(path, user, null, User.class);
 	}
 
+	/**
+	 * password not null,only update password,
+	 * password is null,update others。
+	 * user不传密码，说明修改一般属性；传密码，说明只是修改密码
+	 * @param user
+	 * @return
+	 */
 	public User updateUser(User user)
 	{
 		String path = "/user/" + user.getId();
