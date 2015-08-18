@@ -17,5 +17,9 @@ public class Constants
 	public static final String TEST_USERNAME = "admin";
 	public static final String TEST_PASSWORD = "admin";
 	
-	public static final String TEST_AUTH_ENDPOINT = "http://172.16.102.122:9001";
+	public static final String TEST_AUTH_ENDPOINT = "http://127.0.0.1:9001";
+	
+	public static final String TEST_SERVER_MANAGE_ENDPOINT = "http://127.0.0.1:9002";
+	
+	public static final String TEST_SITE_ENDPOINT = "http://127.0.0.1:9003";
 }
