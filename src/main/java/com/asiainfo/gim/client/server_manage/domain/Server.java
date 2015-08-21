@@ -9,6 +9,8 @@
  */
 package com.asiainfo.gim.client.server_manage.domain;
 
+import java.util.Map;
+
 import com.asiainfo.gim.client.server_manage.domain.Site;
 import com.asiainfo.gim.client.server_manage.domain.Asset;
 
@@ -36,6 +38,8 @@ public class Server
 	private Ssh ssh;
 	
 	private ServerRuntime serverRuntime;
+	
+	private Map<String, String> properties;
 	
 	public String getId()
 	{
@@ -155,6 +159,16 @@ public class Server
 	public void setServerRuntime(ServerRuntime serverRuntime)
 	{
 		this.serverRuntime = serverRuntime;
+	}
+
+	public Map<String, String> getProperties()
+	{
+		return properties;
+	}
+
+	public void setProperties(Map<String, String> properties)
+	{
+		this.properties = properties;
 	}
 	
 }

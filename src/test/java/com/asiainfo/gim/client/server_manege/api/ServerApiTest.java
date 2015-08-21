@@ -9,7 +9,9 @@
  */
 package com.asiainfo.gim.client.server_manege.api;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -78,6 +80,10 @@ public class ServerApiTest
 	{
 		Server server = new Server();
 		server.setIp("192.11.0.200");
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("name", "1");
+		map.put("word", "2");
+		server.setProperties(map);
 		
 		server = serverApi.addServer(server);
 		System.out.println(om.writeValueAsString(server));
