@@ -22,4 +22,6 @@ public class Constants
 	public static final String TEST_SERVER_MANAGE_ENDPOINT = "http://127.0.0.1:9002";
 	
 	public static final String TEST_SITE_ENDPOINT = "http://127.0.0.1:9003";
+	
+	public static final String TEST_DEPLOY_ENDPOINT = "http://127.0.0.1:9005";
 }
