@@ -8,6 +8,8 @@
  */
 package com.asiainfo.gim.client.server_manage.domain;
 
+import java.util.Date;
+
 /**
  * @author zhangli
  *
@@ -22,6 +24,8 @@ public class ServerRuntime
 
 	private long runTime;
 
+	private Date refreshTime;
+	
 	public Integer getStatus()
 	{
 		return status;
@@ -71,4 +75,16 @@ public class ServerRuntime
 	{
 		this.runTime = runTime;
 	}
+
+	public Date getRefreshTime()
+	{
+		return refreshTime;
+	}
+
+	public void setRefreshTime(Date refreshTime)
+	{
+		this.refreshTime = refreshTime;
+	}
+	
+	
 }
