@@ -8,7 +8,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import com.asiainfo.gim.client.Constants;
-import com.asiainfo.gim.client.deploy.domain.KickStartConf;
+import com.asiainfo.gim.client.deploy.domain.TemplateConf;
 import com.asiainfo.gim.client.deploy.domain.TemplateBasicConf;
 import com.asiainfo.gim.client.deploy.domain.TemplateInfo;
 import com.asiainfo.gim.client.deploy.domain.TemplateLogVolConf;
@@ -34,7 +34,7 @@ public class TemplateApiTest
 	@Test
 	@Ignore
 	public void createOrUpdateTemplate() {
-		KickStartConf ksConf = new KickStartConf();
+		TemplateConf ksConf = new TemplateConf();
 		TemplateInfo tempInfo = new TemplateInfo();
 		tempInfo.setTemplateId("2837f2c7-069b-433c-a325-216c2049fed1");
 		tempInfo.setName("test_template06");
@@ -97,7 +97,7 @@ public class TemplateApiTest
 	@Ignore
 	public void getTemplate() throws JsonProcessingException {
 		String templateId = "51a5a341-a914-484d-8b0e-304ae7a36575";
-		KickStartConf kickStartConf = tempApi.getTemplate(templateId);
+		TemplateConf kickStartConf = tempApi.getTemplate(templateId);
 		
 	}
 
@@ -106,6 +106,12 @@ public class TemplateApiTest
 	public void deleteTemplate() throws JsonProcessingException {
 		String templateId = "f09916d5-9451-49fc-a766-adcaafd6eb7c";
 		tempApi.deleteTemplate(templateId);
+	}
+	
+	@Test
+	@Ignore
+	public void listTemplate() throws JsonProcessingException {
+		List<TemplateInfo> tempList = tempApi.listTemplate();
 	}
 
 }
