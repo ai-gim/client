@@ -2,26 +2,38 @@ package com.asiainfo.gim.client.server_manage.domain;
 
 public class Site
 {
-	private int rack;
-	private int slot;
+	private Integer rack;
+	private Integer slot;
+	private Integer size;
 
-	public int getRack()
+	public Integer getRack()
 	{
 		return rack;
 	}
 
-	public void setRack(int rack)
+	public void setRack(Integer rack)
 	{
 		this.rack = rack;
 	}
 
-	public int getSlot()
+	public Integer getSlot()
 	{
 		return slot;
 	}
 
-	public void setSlot(int slot)
+	public void setSlot(Integer slot)
 	{
 		this.slot = slot;
 	}
+
+	public Integer getSize()
+	{
+		return size;
+	}
+
+	public void setSize(Integer size)
+	{
+		this.size = size;
+	}
+	
 }
