@@ -2,7 +2,7 @@ package com.asiainfo.gim.client.deploy.domain;
 
 import java.util.List;
 
-public class KickStartConf {
+public class TemplateConf {
 	
 	private TemplateInfo tempInfo;
 	

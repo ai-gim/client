@@ -1,7 +1,10 @@
 package com.asiainfo.gim.client.deploy.api;
 
+import java.util.List;
+
 import com.asiainfo.gim.client.auth.api.AbstrackApi;
-import com.asiainfo.gim.client.deploy.domain.KickStartConf;
+import com.asiainfo.gim.client.deploy.domain.TemplateConf;
+import com.asiainfo.gim.client.deploy.domain.TemplateInfo;
 
 public class TemplateApi extends AbstrackApi {
 
@@ -9,9 +12,9 @@ public class TemplateApi extends AbstrackApi {
 		super(endpoint);
 	}
 	
-	public KickStartConf createOrUpdateTemplate(KickStartConf ksConf){
+	public TemplateConf createOrUpdateTemplate(TemplateConf templateConf){
 		String path = "/templateres";
-		return restTemplate.post(path, ksConf, null, KickStartConf.class);
+		return restTemplate.post(path, templateConf, null, TemplateConf.class);
 	}
 	
 	public void deleteTemplate(String templateId){
@@ -19,9 +22,14 @@ public class TemplateApi extends AbstrackApi {
 		restTemplate.delete(path, null);
 	}
 	
-	public KickStartConf getTemplate(String templateId){
+	public TemplateConf getTemplate(String templateId){
 		String path = "/templateres/" + templateId;
-		return restTemplate.get(path, null, null, KickStartConf.class);
+		return restTemplate.get(path, null, null, TemplateConf.class);
+	}
+	
+	public List<TemplateInfo> listTemplate(){
+		String path = "/templateres";
+		return restTemplate.getForList(path, null, null, TemplateInfo.class);
 	}
 
 }
