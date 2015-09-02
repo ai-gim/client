@@ -13,8 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
-
 import com.asiainfo.gim.client.auth.api.AbstrackApi;
 import com.asiainfo.gim.client.site.domain.Cabinet;
 import com.asiainfo.gim.client.site.domain.query.CabinetQueryCondition;
@@ -34,14 +32,14 @@ public class CabinetApi extends AbstrackApi
 	{
 		String path = "/cabinets";
 		Map<String, String> queryParamters = new HashMap<String, String>();
-		if (!StringUtils.isEmpty(cabinetQueryCondition.getLocationId()))
+		if (cabinetQueryCondition.getLocationId() != null)
 		{
-			queryParamters.put("locationId", cabinetQueryCondition.getLocationId());
+			queryParamters.put("locationId", String.valueOf(cabinetQueryCondition.getLocationId()));
 		}
 		return restTemplate.getForList(path, queryParamters, null, Cabinet.class);
 	}
 	
-	public Cabinet findCabinetById(String id)
+	public Cabinet findCabinetById(Integer id)
 	{
 		String path = "/cabinet/" + id;
 		return restTemplate.get(path, null, null, Cabinet.class);
@@ -59,7 +57,7 @@ public class CabinetApi extends AbstrackApi
 		return restTemplate.put(path, cabinet, null, Cabinet.class);
 	}
 	
-	public void deleteCabinet(String id)
+	public void deleteCabinet(Integer id)
 	{
 		String path = "/cabinet/" + id;
 		restTemplate.delete(path, null);

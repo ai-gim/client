@@ -31,7 +31,7 @@ public class DatacenterApi extends AbstrackApi
 		return restTemplate.getForList(path, null, null, Datacenter.class);
 	}
 	
-	public Datacenter findDatacenterById(String id)
+	public Datacenter findDatacenterById(Integer id)
 	{
 		String path = "/datacenter/" + id;
 		return restTemplate.get(path, null, null, Datacenter.class);
@@ -49,7 +49,7 @@ public class DatacenterApi extends AbstrackApi
 		return restTemplate.put(path, datacenter, null, Datacenter.class);
 	}
 	
-	public void deleteDatacenter(String id)
+	public void deleteDatacenter(Integer id)
 	{
 		String path = "/datacenter/" + id;
 		restTemplate.delete(path, null);

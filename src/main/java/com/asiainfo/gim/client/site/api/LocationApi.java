@@ -13,8 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
-
 import com.asiainfo.gim.client.auth.api.AbstrackApi;
 import com.asiainfo.gim.client.site.domain.Location;
 import com.asiainfo.gim.client.site.domain.query.LocationQueryCondition;
@@ -34,14 +32,14 @@ public class LocationApi extends AbstrackApi
 	{
 		String path = "/locations";
 		Map<String, String> queryParamters = new HashMap<String, String>();
-		if (!StringUtils.isEmpty(locationQueryCondition.getDatacenterId()))
+		if (locationQueryCondition.getDatacenterId() != null)
 		{
-			queryParamters.put("datacenterId", locationQueryCondition.getDatacenterId());
+			queryParamters.put("datacenterId", String.valueOf(locationQueryCondition.getDatacenterId()));
 		}
 		return restTemplate.getForList(path, queryParamters, null, Location.class);
 	}
 	
-	public Location findLocationById(String id)
+	public Location findLocationById(Integer id)
 	{
 		String path = "/location/" + id;
 		return restTemplate.get(path, null, null, Location.class);
@@ -59,7 +57,7 @@ public class LocationApi extends AbstrackApi
 		return restTemplate.put(path, location, null, Location.class);
 	}
 	
-	public void deleteLocation(String id)
+	public void deleteLocation(Integer id)
 	{
 		String path = "/location/" + id;
 		restTemplate.delete(path, null);
