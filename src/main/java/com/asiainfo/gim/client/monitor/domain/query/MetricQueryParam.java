@@ -1,4 +1,5 @@
-package com.asiainfo.gim.client.metric.domain.query;
+package com.asiainfo.gim.client.monitor.domain.query;
+
 
 public class MetricQueryParam
 {
@@ -46,4 +47,5 @@ public class MetricQueryParam
 	{
 		this.endTime = endTime;
 	}
+
 }
