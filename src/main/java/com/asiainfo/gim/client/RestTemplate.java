@@ -12,6 +12,8 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
 import org.apache.commons.lang.StringUtils;
+import org.glassfish.jersey.media.multipart.FormDataMultiPart;
+import org.glassfish.jersey.media.multipart.MultiPartFeature;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -33,6 +35,7 @@ public class RestTemplate
 		client.register(JacksonJsonProvider.class);
 		client.register(TokenInjectFilter.class);
 		client.register(ResponseFilter.class);
+		client.register(MultiPartFeature.class);
 		return client;
 	}
 	
@@ -143,5 +146,19 @@ public class RestTemplate
 
 		response.close();
 		return responseList;
+	}
+	
+	public <T> T postForFile(String path, FormDataMultiPart formDataMultiPart, MultivaluedMap<String, Object> headers, Class<T> clazz)
+	{
+		Client client = createClient();
+		
+		WebTarget target = client.target(endpoint + path);
+		
+		Response response = target.request().headers(headers).post(Entity.entity(formDataMultiPart, formDataMultiPart.getMediaType()));
+
+		T responseObj = response.readEntity(clazz);
+
+		response.close();
+		return responseObj;
 	}
 }
