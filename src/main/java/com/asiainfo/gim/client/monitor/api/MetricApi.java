@@ -1,4 +1,4 @@
-package com.asiainfo.gim.client.metric.api;
+package com.asiainfo.gim.client.monitor.api;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,8 +7,8 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
 import com.asiainfo.gim.client.auth.api.AbstrackApi;
-import com.asiainfo.gim.client.metric.domain.Metric;
-import com.asiainfo.gim.client.metric.domain.query.MetricQueryParam;
+import com.asiainfo.gim.client.monitor.domain.Metric;
+import com.asiainfo.gim.client.monitor.domain.query.MetricQueryParam;
 
 public class MetricApi extends AbstrackApi
 {
@@ -23,7 +23,7 @@ public class MetricApi extends AbstrackApi
 		Map<String, String> queryParamters = new HashMap<String, String>();
 		if (!StringUtils.isEmpty(metricQueryParam.getMetricName()))
 		{
-			queryParamters.put("indexName", metricQueryParam.getMetricName());
+			queryParamters.put("metricName", metricQueryParam.getMetricName());
 		}
 		if (!StringUtils.isEmpty(metricQueryParam.getIp()))
 		{
