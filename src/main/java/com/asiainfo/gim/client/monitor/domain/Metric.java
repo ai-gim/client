@@ -9,7 +9,6 @@ public class Metric
 	private Object value;
 	private String unit;
 	private Date time;
-	private int tn;
 
 	public String getName()
 	{
@@ -59,15 +58,5 @@ public class Metric
 	public void setIp(String ip)
 	{
 		this.ip = ip;
-	}
-
-	public int getTn()
-	{
-		return tn;
-	}
-
-	public void setTn(int tn)
-	{
-		this.tn = tn;
 	}
 }
