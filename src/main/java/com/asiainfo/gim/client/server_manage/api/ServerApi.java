@@ -17,6 +17,7 @@ import com.asiainfo.gim.client.auth.api.AbstrackApi;
 import com.asiainfo.gim.client.server_manage.domain.Asset;
 import com.asiainfo.gim.client.server_manage.domain.Ipmi;
 import com.asiainfo.gim.client.server_manage.domain.Server;
+import com.asiainfo.gim.client.server_manage.domain.ServerAction;
 import com.asiainfo.gim.client.server_manage.domain.Ssh;
 import com.asiainfo.gim.client.server_manage.domain.query.ServerQueryCondition;
 
@@ -86,5 +87,32 @@ public class ServerApi extends AbstrackApi
 	{
 		String path = "/server/" + serverId;
 		restTemplate.delete(path, null);
+	}
+	
+	public void serverPowerOn(String serverId)
+	{
+		ServerAction serverAction = new ServerAction();
+		serverAction.setAction("start");
+		
+		String path = "/server/" + serverId + "/action";
+		restTemplate.post(path, serverAction, null, Server.class);
+	}
+	
+	public void serverPowerOff(String serverId)
+	{
+		ServerAction serverAction = new ServerAction();
+		serverAction.setAction("stop");
+		
+		String path = "/server/" + serverId + "/action";
+		restTemplate.post(path, serverAction, null, Server.class);
+	}
+	
+	public void serverPowerReboot(String serverId)
+	{
+		ServerAction serverAction = new ServerAction();
+		serverAction.setAction("reboot");
+		
+		String path = "/server/" + serverId + "/action";
+		restTemplate.post(path, serverAction, null, Server.class);
 	}
 }
