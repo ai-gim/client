@@ -25,5 +25,5 @@ public class Constants
 	
 	public static final String TEST_MONITOR_ENDPOINT = "http://127.0.0.1:9004";
 	
-	public static final String TEST_DEPLOY_ENDPOINT = "http://127.0.0.1:9005";
+	public static final String TEST_DEPLOY_ENDPOINT = "http://172.16.102.141:9005";
 }

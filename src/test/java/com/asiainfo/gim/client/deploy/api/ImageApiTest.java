@@ -35,6 +35,15 @@ public class ImageApiTest
 		image.setOsvers("centos6.6");
 		imageApi.createOsImage(image);
 	}
+	
+	@Test
+	@Ignore
+	public void updateLinuxImageConf() {
+		Image image = new Image();
+		image.setImagename("");
+		image.setTemplateId("");
+		imageApi.updateImageTemplate(image);
+	}
 
 	@Test
 	@Ignore

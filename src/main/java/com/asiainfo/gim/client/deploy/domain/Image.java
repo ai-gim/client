@@ -10,6 +10,7 @@ public class Image {
 	private String imagetype;
 	private String osdistroname;
 	private String isoFile;
+	private String templateId;
 	public String getImagename() {
 		return imagename;
 	}
@@ -63,6 +64,12 @@ public class Image {
 	}
 	public void setIsoFile(String isoFile) {
 		this.isoFile = isoFile;
+	}
+	public String getTemplateId() {
+		return templateId;
+	}
+	public void setTemplateId(String templateId) {
+		this.templateId = templateId;
 	}
 
 }
