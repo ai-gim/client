@@ -21,8 +21,8 @@ public class ImageApi extends AbstrackApi {
 	}
 	
 	public void updateImageTemplate(Image image){
-		String path = "/imageres/" + image.getImagename();
-		restTemplate.put(path, image, null, null);
+		String path = "/imageres/images/" + image.getImagename();
+		restTemplate.put(path, image, null, String.class);
 	}
 	
 	public List<Image> listImages(){

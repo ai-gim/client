@@ -40,8 +40,8 @@ public class ImageApiTest
 	@Ignore
 	public void updateLinuxImageConf() {
 		Image image = new Image();
-		image.setImagename("");
-		image.setTemplateId("");
+		image.setImagename("centos6.6-x86_64-install-compute");
+		image.setTemplateId("0bb2019c-8dff-439d-9a64-1a260804c264");
 		imageApi.updateImageTemplate(image);
 	}
 
