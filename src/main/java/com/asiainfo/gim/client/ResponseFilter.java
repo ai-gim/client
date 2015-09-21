@@ -20,6 +20,7 @@ import com.asiainfo.gim.client.exception.ServerErrorException;
 import com.asiainfo.gim.client.exception.UnAuthorizedException;
 import com.asiainfo.gim.client.exception.UnknownException;
 import com.asiainfo.gim.client.exception.ValidationException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 /**
@@ -28,12 +29,16 @@ import com.asiainfo.gim.client.exception.ValidationException;
  */
 public class ResponseFilter implements ClientResponseFilter
 {
+	private static ObjectMapper om = new ObjectMapper();
+	
 	@Override
 	public void filter(final ClientRequestContext reqCtx, final ClientResponseContext resCtx) throws IOException
 	{
 		if (resCtx.getStatus() == 400)
 		{
-			throw new ValidationException();
+			Error error = om.readValue(resCtx.getEntityStream(), Error.class);
+			String message = error.getMessage();
+			throw new ValidationException(message);
 		}
 		else if (resCtx.getStatus() == 401)
 		{
