@@ -18,10 +18,8 @@ public class AlertConfigApi extends AbstrackApi
 
 	public AlertConfig findAlertConfigById(int id)
 	{
-		String path = "/alertconfig";
-		Map<String, String> queryParamters = new HashMap<String, String>();
-		queryParamters.put("id", String.valueOf(id));
-		return restTemplate.get(path, queryParamters, null, AlertConfig.class);
+		String path = "/alertconfig/" + id;
+		return restTemplate.get(path, null, null, AlertConfig.class);
 	}
 
 	public List<AlertConfig> getAlertConfigs()
