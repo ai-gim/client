@@ -47,7 +47,7 @@ public class AlertConfigApi extends AbstrackApi
 
 	public AlertConfig updateAlertConfig(AlertConfig alertConfig)
 	{
-		String path = "/alertconfig";
+		String path = "/alertconfig/" + alertConfig.getId();
 		return restTemplate.put(path, alertConfig, null, AlertConfig.class);
 	}
 
