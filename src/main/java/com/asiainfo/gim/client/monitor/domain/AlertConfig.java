@@ -4,22 +4,22 @@ import java.util.Map;
 
 public class AlertConfig
 {
-	private Integer id;
+	private String id;
 	private Integer targetType;
 	private String targetId;
 	// 告警级别
 	private Integer level;
 	// 告警类型(metric, heartbeat)
 	private Integer type;
-	//专属字段的json数据
+	// 专属字段的json数据
 	private Map<String, String> properties;
 
-	public Integer getId()
+	public String getId()
 	{
 		return id;
 	}
 
-	public void setId(Integer id)
+	public void setId(String id)
 	{
 		this.id = id;
 	}

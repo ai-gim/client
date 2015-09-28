@@ -16,7 +16,7 @@ public class AlertConfigApi extends AbstrackApi
 		super(endpoint);
 	}
 
-	public AlertConfig findAlertConfigById(int id)
+	public AlertConfig findAlertConfigById(String id)
 	{
 		String path = "/alertconfig/" + id;
 		return restTemplate.get(path, null, null, AlertConfig.class);
@@ -51,7 +51,7 @@ public class AlertConfigApi extends AbstrackApi
 		return restTemplate.put(path, alertConfig, null, AlertConfig.class);
 	}
 
-	public void deleteAlertConfig(int id)
+	public void deleteAlertConfig(String id)
 	{
 		String path = "/alertconfig/" + id;
 		restTemplate.delete(path, null);
