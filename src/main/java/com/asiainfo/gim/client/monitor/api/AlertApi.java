@@ -15,6 +15,7 @@ import java.util.Map;
 
 import com.asiainfo.gim.client.auth.api.AbstrackApi;
 import com.asiainfo.gim.client.monitor.domain.Alert;
+import com.asiainfo.gim.client.monitor.domain.AlertAction;
 import com.asiainfo.gim.client.monitor.domain.query.AlertQueryParam;
 
 /**
@@ -55,5 +56,13 @@ public class AlertApi extends AbstrackApi
 		}
 		
 		return restTemplate.getForList(path, queryParamters, null, Alert.class);
+	}
+	
+	public void confirmAlert(String id)
+	{
+		String path = "/alert/" + id + "/action";
+		AlertAction alertAction = new AlertAction();
+		alertAction.setAction("confirm");
+		restTemplate.put(path, alertAction, null, Alert.class);
 	}
 }
