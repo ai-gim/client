@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.asiainfo.gim.client.auth.api.AbstrackApi;
-import com.asiainfo.gim.client.deploy.domain.Distro;
 import com.asiainfo.gim.client.deploy.domain.Image;
+import com.asiainfo.gim.client.deploy.domain.ImageDefaultConf;
 import com.asiainfo.gim.client.deploy.domain.IsoFile;
 
 public class ImageApi extends AbstrackApi {
@@ -15,7 +15,7 @@ public class ImageApi extends AbstrackApi {
 		super(endpoint);
 	}
 	
-	public void createOsImage(Image image){
+	public void createImage(Image image){
 		String path = "/imageres";
 		restTemplate.post(path, image, null, Image.class);
 	}
@@ -30,18 +30,19 @@ public class ImageApi extends AbstrackApi {
 		return restTemplate.getForList(path, null, null, Image.class);
 	}
 	
-	public List<Distro> listDistros(){
-		String path = "/imageres/distros";
-		List<Distro> distroList = restTemplate.getForList(path, null, null, Distro.class);
-		for(Distro distro : distroList){
-			distro.setId(distro.getOsdistroname());
-		}
-		return distroList;
+	public void deleteImage(int imageId){
+		String path = "/imageres/images/" + imageId;
+		restTemplate.delete(path, null);
 	}
 	
-	public void deleteDistro(String distroName){
-		String path = "/imageres/distros/" + distroName;
-		restTemplate.delete(path, null);
+	public Image getImage(int imageId){
+		String path = "/imageres/images/" + imageId;
+		return restTemplate.get(path, null, null, Image.class);
+	}
+	
+	public List<ImageDefaultConf> listImageDefaultConf(){
+		String path = "/imageres/imagetypes";
+		return restTemplate.getForList(path, null, null, ImageDefaultConf.class);
 	}
 	
 	public List<IsoFile> listIsoFile(String isoDir){
