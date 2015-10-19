@@ -20,10 +20,6 @@ public class Image {
 	
 	private String isoFile;
 	
-	private String templateId;
-	
-	private String imagename;
-
 	public Integer getId() {
 		return id;
 	}
@@ -88,20 +84,4 @@ public class Image {
 		this.isoFile = isoFile;
 	}
 
-	public String getTemplateId() {
-		return templateId;
-	}
-
-	public void setTemplateId(String templateId) {
-		this.templateId = templateId;
-	}
-
-	public String getImagename() {
-		return imagename;
-	}
-
-	public void setImagename(String imagename) {
-		this.imagename = imagename;
-	}
-	
 }

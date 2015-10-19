@@ -53,10 +53,6 @@ public class NodeApiTest
 	@Test
 	@Ignore
 	public void installos(){
-		Node node = new Node();
-		node.setName("testnode01");
-		node.setOsimage("centos6.6-x86_64-install-compute");
-		NodeApi.installos(node);
 	}
 	
 	@Test
