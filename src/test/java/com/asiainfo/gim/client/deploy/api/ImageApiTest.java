@@ -7,7 +7,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import com.asiainfo.gim.client.Constants;
-import com.asiainfo.gim.client.deploy.domain.Distro;
 import com.asiainfo.gim.client.deploy.domain.Image;
 import com.asiainfo.gim.client.deploy.domain.IsoFile;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -30,19 +29,17 @@ public class ImageApiTest
 	@Ignore
 	public void createOsimage() {
 		Image image = new Image();
-		image.setIsoFile("CentOS-6.6-x86_64-bin-DVD1.iso");
-		image.setOsarch("x86_64");
-		image.setOsvers("centos6.6");
-		imageApi.createOsImage(image);
+		image.setIsoFile("/mnt/CentOS-6.6-x86_64-bin-DVD1.iso");
+		image.setOsArch("x86_64");
+		image.setOsVersion("6.6");
+		image.setOsType("centos");
+		imageApi.createImage(image);
 	}
 	
 	@Test
 	@Ignore
 	public void updateLinuxImageConf() {
-		Image image = new Image();
-		image.setImagename("centos6.6-x86_64-install-compute");
-		image.setTemplateId("0bb2019c-8dff-439d-9a64-1a260804c264");
-		imageApi.updateImageTemplate(image);
+		
 	}
 
 	@Test
@@ -51,17 +48,6 @@ public class ImageApiTest
 		List<Image> imagelist = imageApi.listImages();
 	}
 
-	@Test
-	@Ignore
-	public void listDistros() throws JsonProcessingException {
-		List<Distro> distrolist = imageApi.listDistros();
-	}
-
-	@Test
-	@Ignore
-	public void deleteDistro() {
-		imageApi.deleteDistro("rhels6.5-x86_64");
-	}
 	
 	@Test
 	@Ignore
