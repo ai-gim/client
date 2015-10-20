@@ -89,7 +89,9 @@ public class RestTemplate
 		
 		WebTarget target = client.target(endpoint + path);
 		
-		target.request().headers(headers).post(Entity.entity(object, MediaType.APPLICATION_JSON));
+		Response response = target.request().headers(headers).post(Entity.entity(object, MediaType.APPLICATION_JSON));
+		
+		response.close();
 	}
 	
 	public <T> T put(String path, Object object, MultivaluedMap<String, Object> headers, Class<T> clazz)
