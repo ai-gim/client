@@ -20,7 +20,7 @@ public class NodeApi extends AbstrackApi {
 
 	public void installos(Node node) {
 		String path = "/noderes/installos";
-		restTemplate.post(path, node, null, String.class);
+		restTemplate.post(path, node, null);
 	}
 
 	public String getNodeStat(String nodeName) {
