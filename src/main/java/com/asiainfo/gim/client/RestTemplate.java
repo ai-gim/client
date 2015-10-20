@@ -83,6 +83,15 @@ public class RestTemplate
 		return responseObj;
 	}
 	
+	public void post(String path, Object object, MultivaluedMap<String, Object> headers)
+	{
+		Client client = createClient();
+		
+		WebTarget target = client.target(endpoint + path);
+		
+		target.request().headers(headers).post(Entity.entity(object, MediaType.APPLICATION_JSON));
+	}
+	
 	public <T> T put(String path, Object object, MultivaluedMap<String, Object> headers, Class<T> clazz)
 	{
 		Client client = createClient();
